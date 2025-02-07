@@ -41,7 +41,8 @@ begin
         select 1 from inserted where EndTime <= StartTime
     )
     begin
-        raiserror (N'EndTime повинно бути быльше StartTime!', 16,1);
+        raiserror ('EndTime повинно бути быльше StartTime!', 16,1);
+        rollback TRANSACTION;
     end
 end
 go
